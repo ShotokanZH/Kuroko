@@ -55,19 +55,19 @@ Once established, the architecture resembles a classic Client-Server model, but 
 
 ```mermaid
 graph TD
-    subgraph Local_Machine [Attacker Machine]
+    subgraph Local_Machine ["Attacker Machine"]
         Kuroko[Kuroko Client]
         Paramiko[Paramiko Transport]
     end
 
-    subgraph SSH_Tunnel [Encrypted SSH Session (TCP :22)]
-        Channel[Channel: auth-agent@openssh.com]
+    subgraph SSH_Tunnel ["Encrypted SSH Session (TCP :22)"]
+        Channel["Channel: auth-agent@openssh.com"]
     end
 
-    subgraph Remote_Target [Target Server]
+    subgraph Remote_Target ["Target Server"]
         SSHD[SSH Daemon]
-        Socket[Unix Socket: /tmp/ssh-XXXX/agent.sock]
-        Implant[Python3 Process (Memory Only)]
+        Socket["Unix Socket: /tmp/ssh-XXXX/agent.sock"]
+        Implant["Python3 Process (Memory Only)"]
     end
 
     %% Flow
